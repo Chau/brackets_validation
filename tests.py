@@ -28,6 +28,9 @@ class ValidateTest(TestCase):
     def test_success_7(self):
         self.assertTrue(validate('[{}({})]'))
 
+    def test_success_8(self):
+        self.assertTrue(validate('{{[()]}}'))
+
     def test_odd_length_1(self):
         self.assertFalse(validate('('))
 
@@ -63,6 +66,9 @@ class ValidateTest(TestCase):
 
     def test_fail_9(self):
         self.assertFalse(validate('({)[}]'))
+
+    def test_fail_10(self):
+        self.assertFalse(validate('({}[]['))
 
     def test_raise_empty(self):
         with self.assertRaises(BracketValidationError) as e:

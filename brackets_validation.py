@@ -45,13 +45,12 @@ def validate(input_brackets):
 	if input_brackets[0] in CLOSED_BRACKETS:
 		return False
 
-	if slen % 2 == 1: # нечетное число символов в строке
-		return False
+	# if slen % 2 == 1: # нечетное число символов в строке
+	# 	return False
 
 	i = 0
 	opened_brackets = [input_brackets[i]] # Список, содержащий только открывающие скобки.
-
-	while opened_brackets or i < len(input_brackets) - 1:
+	while opened_brackets or i < slen - 1:
 		# Проходим по каждому символу входящей строки. Открывающие скобки добавляем в
 		# список opened_brackets. Как только встречается закрывающая скобка, берем
 		# последний элемента списка из opened_brackets и проверяем пару. Если пара совпадает,
@@ -71,7 +70,8 @@ def validate(input_brackets):
 		else:
 			opened_brackets.append(next_char)
 			i += 1
-			
+
+	#
 	if i + 1 == len(input_brackets):
 		return True
 
