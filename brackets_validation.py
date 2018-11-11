@@ -45,8 +45,8 @@ def validate(input_brackets):
 	if input_brackets[0] in CLOSED_BRACKETS:
 		return False
 
-	# if slen % 2 == 1: # нечетное число символов в строке
-	# 	return False
+	if slen % 2 == 1: # нечетное число символов в строке
+		return False
 
 	i = 0
 	opened_brackets = [input_brackets[i]] # Список, содержащий только открывающие скобки.
